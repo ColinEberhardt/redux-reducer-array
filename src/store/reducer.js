@@ -6,9 +6,6 @@ const INITIAL_STATE = [
   COUNTER_INITIAL_STATE
 ]
 
-export const bindIndexToActionCreator = (actionCreator, index) =>
-  (...args) => Object.assign(actionCreator(...args), { index })
-
 const reducer = (state = INITIAL_STATE, action) => {
   if (action.type.startsWith('counter/')) {
     state = [
