@@ -1,16 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
-
-import { incrementAction, decrementAction } from '../store/counterReducer'
-
-const mapStateToProps = state => ({
-  counter: state
-})
-
-const mapDispatchToProps = {
-  incrementAction,
-  decrementAction
-}
 
 const Counter = props => (
   <div className={'redux' + (props.counter.warning ? ' warning' : '')} >
@@ -20,4 +8,4 @@ const Counter = props => (
   </div>
 )
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter)
+export default Counter
