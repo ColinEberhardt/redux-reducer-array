@@ -26,7 +26,7 @@ const mapDispatchToProps = dispatch => ({
   dispatch
 })
 
-const Counters = props =>
+const CounterCollection = props =>
   <div className='container'>
     {props.counters.map((value, index) =>
       <Counter counter={value}
@@ -35,4 +35,4 @@ const Counters = props =>
     <AddCounter addCounter={props.addCounter}/>
   </div>
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counters)
+export default connect(mapStateToProps, mapDispatchToProps)(CounterCollection)

@@ -3,7 +3,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 import reducer from './store/reducer'
-import Counters from './component/Counters'
+import CounterCollection from './component/CounterCollection'
 
 const store = (window.devToolsExtension ? window.devToolsExtension()(createStore) : createStore)(reducer)
 
@@ -14,7 +14,7 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Counters/>
+        <CounterCollection/>
       </Provider>
     )
   }
