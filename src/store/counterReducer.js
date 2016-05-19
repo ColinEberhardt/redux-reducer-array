@@ -1,5 +1,5 @@
-const INCREMENT = 'INCREMENT'
-const DECREMENT = 'DECREMENT'
+const INCREMENT = 'counter/INCREMENT'
+const DECREMENT = 'counter/DECREMENT'
 
 const update = (state, mutations) =>
   Object.assign({}, state, mutations)
