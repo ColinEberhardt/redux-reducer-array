@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
-import reducer from './store/reducer'
+import reducer from './store/counterReducer'
 import Counter from './component/Counter'
 
 const store = createStore(reducer)

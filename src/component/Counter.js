@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { incrementAction, decrementAction } from '../store/reducer'
+import { incrementAction, decrementAction } from '../store/counterReducer'
 
 const mapStateToProps = state => ({
-  value: state
+  counter: state
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -16,15 +16,11 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-const Counter = ({
-  value,
-  onIncrement,
-  onDecrement
-}) => (
-  <div className='redux'>
-    <h1>{value}</h1>
-    <button onClick={onIncrement}>+</button>
-    <button onClick={onDecrement}>-</button>
+const Counter = props => (
+  <div className={'redux' + (props.counter.warning ? ' warning' : '')} >
+    <h1>{props.counter.value}</h1>
+    <button onClick={props.onIncrement}>+</button>
+    <button onClick={props.onDecrement}>-</button>
   </div>
 )
 
