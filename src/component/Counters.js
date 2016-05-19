@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import Counter from './Counter'
+import AddCounter from './AddCounter'
 import bindIndexToActionCreators from '../store/bindIndexToActionCreators'
+import { bindIndexToActionCreator, addCounterAction } from '../store/reducer'
 import { incrementAction, decrementAction } from '../store/counterReducer'
 
 const mapStateToProps = state => ({
@@ -17,12 +19,20 @@ const counterDispatchProperties =
         bindIndexToActionCreators({incrementAction, decrementAction}, index),
       dispatch)
 
+const mapDispatchToProps = dispatch => ({
+  addCounter() {
+    dispatch(addCounterAction())
+  },
+  dispatch
+})
+
 const Counters = props =>
   <div className='container'>
     {props.counters.map((value, index) =>
       <Counter counter={value}
         {...counterDispatchProperties(index)(props.dispatch)}/>
     )}
+    <AddCounter addCounter={props.addCounter}/>
   </div>
 
-export default connect(mapStateToProps)(Counters)
+export default connect(mapStateToProps, mapDispatchToProps)(Counters)
