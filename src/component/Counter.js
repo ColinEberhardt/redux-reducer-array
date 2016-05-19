@@ -7,20 +7,16 @@ const mapStateToProps = state => ({
   counter: state
 })
 
-const mapDispatchToProps = dispatch => ({
-  onIncrement() {
-    dispatch(incrementAction())
-  },
-  onDecrement() {
-    dispatch(decrementAction())
-  }
-})
+const mapDispatchToProps = {
+  incrementAction,
+  decrementAction
+}
 
 const Counter = props => (
   <div className={'redux' + (props.counter.warning ? ' warning' : '')} >
     <h1>{props.counter.value}</h1>
-    <button onClick={props.onIncrement}>+</button>
-    <button onClick={props.onDecrement}>-</button>
+    <button onClick={props.incrementAction}>+</button>
+    <button onClick={props.decrementAction}>-</button>
   </div>
 )
 
